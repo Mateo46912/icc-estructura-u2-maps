@@ -154,4 +154,10 @@ Para administrar un directorio telefónico sin claves duplicadas y ordenado por 
 
 ### Capturas
 
+#### cap 1
 ![alt text](image.png)
+
+#### cap 2
+![alt text](image-1.png)
+
+

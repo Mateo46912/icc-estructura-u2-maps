@@ -8,6 +8,10 @@ private int id;
     
     public Empleado() {
     }
+ 
+    public Empleado(int id) {
+        this.id = id;
+    }
 
     public Empleado(int id, String name, String position) {
         this.id = id;
@@ -32,17 +36,16 @@ private int id;
         return "ID: " + id + ", Name: " + name + ", Position: " + position;
     }
 
+    
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + id;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
         return result;
-
         //Tambien se puede crear asi
-        // return id + nombre.hashCode();
-        
+        // return id 
     }
 
     @Override
@@ -56,21 +59,12 @@ private int id;
         Empleado other = (Empleado) obj;
         if (id != other.id)
             return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
         return true;
     }
 
     public int compareTo(Empleado emp) {
         int result = Integer.compare(id, emp.id);
-        if(result == 0){  
-            return name.compareTo(emp.getName());
-        }else{
             return result;
-        }
     }
 
 
