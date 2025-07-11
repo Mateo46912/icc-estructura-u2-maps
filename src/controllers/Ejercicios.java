@@ -1,6 +1,9 @@
 package controllers;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
+
 
 public class Ejercicios {
 
@@ -28,8 +31,20 @@ public class Ejercicios {
      * frecuencia.
      */
     public static boolean areAnagrams(String str1, String str2) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (str1 == null || str2 == null || str1.length() != str2.length()) return false;
 
+        Map<Character, Integer> map1 = new HashMap<>();
+        for (char c : str1.toCharArray()) {
+            map1.put(c, map1.getOrDefault(c, 0) + 1);
+        }
+
+        for (char c : str2.toCharArray()) {
+            if (!map1.containsKey(c)) return false;
+            map1.put(c, map1.get(c) - 1);
+            if (map1.get(c) == 0) map1.remove(c);
+        }
+
+        return map1.isEmpty();
     }
 
     /*
@@ -48,7 +63,15 @@ public class Ejercicios {
      * Output: null
      */
     public int[] sumatoriaDeDos(int[] nums, int objetivo) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        Map<Integer, Integer> mapa = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complemento = objetivo - nums[i];
+            if (mapa.containsKey(complemento)) {
+                return new int[] { mapa.get(complemento), i };
+            }
+            mapa.put(nums[i], i);
+        }
+        return null;
     }
 
     /**
@@ -60,7 +83,11 @@ public class Ejercicios {
      * Output: {h=1, o=1, l=1, a=1}
      */
     public void contarCaracteres(String texto) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        Map<Character,Integer> mapContar = new HashMap<>();
+        for (Character c : texto.toCharArray()) {
+            mapContar.put(c, mapContar.getOrDefault(c, 0) + 1);
+        }
+        System.out.println(mapContar);
     }
 
     /**
@@ -72,6 +99,17 @@ public class Ejercicios {
      * Output: true
      */
     public boolean sonAnagramas(String palabra1, String palabra2) {
-        throw new UnsupportedOperationException("Not implemented yet");
+   
+        if (palabra1 == null || palabra2 == null) return false;
+        if (palabra1.length() != palabra2.length()) return false;
+
+        char[] arr1 = palabra1.toCharArray();
+        char[] arr2 = palabra2.toCharArray();
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        return Arrays.equals(arr1, arr2);
+
     }
 }

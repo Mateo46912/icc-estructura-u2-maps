@@ -1,3 +1,7 @@
+import java.util.Arrays;
+
+import javax.swing.JFrame;
+
 import controllers.Ejercicios;
 import controllers.EmpleadoContoller;
 import controllers.EmpleadoDAOHashMap;
@@ -14,7 +18,8 @@ public class App {
         System.out.println("Nombre: Mateo Cordero"); /// Cambiar por su nombre
         // Ejecuta el ejemplo de uso de HashMap con ejemplos sencillos
         // runMapExamlpe();
-        runEmpleadoExample();
+        // runEmpleadoExample();
+        runEjerccios();
 
         // // Ejecuta el ejemplo de gestión de empleados usando HashMap
         // runEmpleadoExample();
@@ -53,7 +58,7 @@ public class App {
         Empleado emp2 = new Empleado(2, "Pedro", "DEV");
         Empleado emp3 = new Empleado(5, "Juan", "DEV");
         Empleado emp4 = new Empleado(3, "Maria", "DEV");
-        Empleado emp5 = new Empleado(1,"Juan","DEV");
+        Empleado emp5 = new Empleado(1, "Juan", "DEV");
 
         empControllerHash.agregarEmpleado(emp1);
         empControllerHash.agregarEmpleado(emp2);
@@ -75,17 +80,45 @@ public class App {
         System.out.println();
         System.out.println("--LISTADO DE EMPLEADOS USANDO TREEMAP--");
         empControllerTree.listarEmps();
-        System.out.println("!Se removio el empleado id(2)! OSEA SE ELIMINO A --> " + emp2 );
+        System.out.println("!Se removio el empleado id(2)! OSEA SE ELIMINO A --> " + emp2);
         empControllerTree.removerEmps(2);
         empControllerTree.listarEmps();
-
-
-
 
     }
 
     private static void runEjerccios() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        Ejercicios ejercicios = new Ejercicios();
+        System.out.println();
+        System.out.println("--AREANAGRAMAS--");
+        System.out.println("Ejemplos de uso: ");
+        System.out.println("listen vs silent: " + Ejercicios.areAnagrams("listen", "silent"));
+        System.out.println("hello vs bello: " + Ejercicios.areAnagrams("hello", "bello"));
+        System.out.println("triangle vs integral: " + Ejercicios.areAnagrams("triangle", "integral"));
+        System.out.println();
+
+        System.out.println("--SUMATORIA DE DOS--");
+        System.out.println("Ejemplos de uso: ");
+        int[] nums1 = { 9, 2, 3, 6 };
+        int objetivo1 = 5;
+        int[] resultado1 = ejercicios.sumatoriaDeDos(nums1, objetivo1);
+        System.out.println("nums = [9,2,3,6], objetivo = 5 -> " + Arrays.toString(resultado1));
+
+        int objetivo2 = 10;
+        int[] resultado2 = ejercicios.sumatoriaDeDos(nums1, objetivo2);
+        System.out.println("nums = [9,2,3,6], objetivo = 10 -> " + Arrays.toString(resultado2));
+        System.out.println();
+
+        System.out.println("--CONTAR CARACTERES--");
+        System.out.println("Ejemplos de uso: ");
+        String texto = "hola";
+        System.out.print("Texto: \"" + texto + "\" -> ");
+        ejercicios.contarCaracteres(texto);
+        System.out.println();
+
+        System.out.println("--SON ANAGRAMAS--");
+        System.out.println("Ejemplos de uso: ");
+        System.out.println("roma vs amor: " + ejercicios.sonAnagramas("roma", "amor"));
+        System.out.println();
 
     }
 

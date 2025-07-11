@@ -160,4 +160,6 @@ Para administrar un directorio telefónico sin claves duplicadas y ordenado por 
 #### cap 2
 ![alt text](image-1.png)
 
+### cap 3 (Ejercicios)
+![alt text](image-2.png) 
 

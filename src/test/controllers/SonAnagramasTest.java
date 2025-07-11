@@ -12,6 +12,6 @@ public class SonAnagramasTest {
     @Test
     void testAnagramas() {
         assertTrue(ejercicios.sonAnagramas("roma", "amor"));
-        assertFalse(ejercicios.sonAnagramas("hola", "halo"));
+        assertFalse(ejercicios.sonAnagramas("hola", "helo"));
     }
 }
